@@ -41,9 +41,10 @@ sudo apt install ros-humble-slam-toolbox
 <text style="font-size: 16px;">3\. Install dependencies
 
 ```bash
-cd ~/Team_id_53/
+git clone https://github.com/Loki-Silvres/Multi-Robot-Collaborative-Mapping.git
+cd ~/Multi-Robot-Collaborative-Mapping/
 colcon build
-echo "source ~/Team_id_53/install/setup.bash" >> ~/.bashrc
+source ~/Multi-Robot-Collaborative-Mapping/install/setup.bash
 ```
 
 <br>
@@ -55,7 +56,7 @@ echo "source ~/Team_id_53/install/setup.bash" >> ~/.bashrc
 
 
 ```bash
-cd ~/Team_id_53/
+cd ~/Multi-Robot-Collaborative-Mapping/
 python3 tortoisebot/multiple_spawner/launch/slam_launcher.py --num_bots=3 --x_pose 0.0 0.0 0.0 --y_pose 0.0 0.5 -0.5
 ```
 
@@ -76,14 +77,14 @@ where bot_id is the id of the bot you want to control, between 0 till num_bots-1
 <text style="font-size: 16px;">4\. To save the map:
 
 ```bash
-ros2 run nav2_map_server map_saver_cli -f ~/Team_id_53/merge_map
+ros2 run nav2_map_server map_saver_cli -f ~/Multi-Robot-Collaborative-Mapping/merge_map
 ```
 
 # Directory Structure
 
 ```bash
 $HOME
-└── Team_id_53
+└── Multi-Robot-Collaborative-Mapping
     ├── demo_small_world.webm
     ├── README.md
     └── tortoisebot
@@ -108,6 +109,8 @@ $HOME
 # How does it work
 <text style="font-size: 16px;">Our solution implements a parameterized launch file that can be used to spawn any number of bots in different locations. It the assigns each robot a namespace to independently manage its own SLAM and navigation stack. The map-merge node is responsible for merging the maps of all the robots. The robots are teleoped using the teleop_twist_keyboard node and finally the map is saved using the map_saver_cli node.
 
+## Demonstration:
+Videos: [drive_link](https://drive.google.com/drive/folders/1MgiL05QnOL-lLFsUhnx-fCnIzhuZ9fLA?usp=sharing)
 
 # Resources
 
